@@ -5,4 +5,4 @@
 Codepen [Advanced Demo](https://codepen.io/emiliosg11/pen/XWPMqWj) <br>
 
 ## Screenshot
-![demo](https://raw.githubusercontent.com/EmilioSG11/videojs-luxmty-skin/main/img/preview.jpg)
+![demo](https://dl.dropbox.com/s/anq9h9576jbtyhk/preview.jpg)
