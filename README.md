@@ -6,3 +6,6 @@ Codepen [Advanced Demo](https://codepen.io/emiliosg11/pen/XWPMqWj) <br>
 
 ## Screenshot
 ![demo](https://dl.dropbox.com/s/anq9h9576jbtyhk/preview.jpg)
+
+## BUY ADVANCED PLAYER/SKIN
+https://ko-fi.com/s/9194d0cea1
