@@ -9,10 +9,6 @@
 (https://x.com/EmilioSGZ_)
 (https://ko-fi.com/emiliosg11)
 */
-@font-face {
-  font-family: bootstrap-icons;
-  src: url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/fonts/bootstrap-icons.woff2);
-}
 :root {
   --live-progress-control-bar: flex;
   --loading-spinner-spin-speed: spin .7s linear infinite;
@@ -63,7 +59,7 @@
 /*Font Family*/
 :root {
   --font: "Questrial", "Arial", "Helvetica", "Sans Serif";
-  --icon-family: "VideoJS", "bootstrap-icons";
+  --icon-family: "VideoJS";
 }
 
 /*Font Sizes*/
