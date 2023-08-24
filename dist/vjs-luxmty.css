@@ -1297,19 +1297,6 @@
   transform: translateY(0);
 }
 
-.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip:before {
-  font-size: 2.8em;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip:after,
-.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip.reverse:after {
-  font-size: 0.7em;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay .vjs-play-control {
-  font-size: 2em;
-}
-
 /*ADAPTIVE LAYOUTS*/
 .vjs-luxmty.vjs-layout-small:not(.vjs-fullscreen) .vjs-audio-button,
 .vjs-luxmty.vjs-layout-small .vjs-skip-backward-5,
