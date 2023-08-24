@@ -1,18 +1,22 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Questrial&amp;display=swap"); /*!
-* @EmilioSG11/videojs-luxmty-player-skin
-* @Version - 2.1.1
+* @EmilioSG11/videojs-luxmty-skin
+* @Version - 2.1.4
 * @Copyright (c) 2023 Emilio Salas
 * @Designed By EmilioSG11
 (emiliosalasgzz@gmail.com),
-(https://www.github.com/EmilioSG11)
+(https://github.com/EmilioSG11)
 (https://x.com/EmilioSGZ_)
 (https://ko-fi.com/emiliosg11)
 */
+@font-face {
+  font-family: bootstrap-icons;
+  src: url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/fonts/bootstrap-icons.woff2);
+}
 :root {
-  --live-progress-control-bar: flex;
-  --loading-spinner-spin-speed: spin .7s linear infinite;
-  --icon-spacing: 2rem;
+  --live-progress-control-bar: flex; /*None for hide progress bar in livestreams*/
+  --loading-spinner-spin-speed: vjs-spinner-spin .7s linear infinite;
+  --icon-spacing: 1.9rem;
 }
 
 /*Colors*/
@@ -32,7 +36,7 @@
   --live-playing: red;
   --live-paused: #888;
   --scrollbar: hsl(var(--secondary-hsl));
-  --time-duration: hsl(var(--primary-hsl) / .6);
+  --time-duration: hsl(var(--primary-hsl) / .6 );
   --time-divider: hsl(var(--secondary-hsl));
   --loading-spinner-border-color: hsl(var(--primary-hsl));
   --loading-spinner-spin-color: hsl(var(--secondary-hsl));
@@ -44,22 +48,22 @@
 
 /*Bg Colors*/
 :root {
-  --bg-control-bar: hsl(var(--tertiary-hsl) / .7);
+  --bg-control-bar: hsl(var(--tertiary-hsl) / .85);
   --bg-play-progress: hsl(var(--primary-hsl));
   --bg-load-progress: hsl(var(--secondary-hsl) / .95);
   --bg-load-progress-div: hsl(var(--secondary-hsl) / 0);
   --bg-big-play: hsl(var(--tertiary-hsl) /.45);
   --bg-menu-selected: hsl(0 0% 14%);
-  --bg-menu-popup: hsl(var(--tertiary-hsl) / .7);
+  --bg-menu-popup: hsl(var(--tertiary-hsl) / .85);
   --bg-title-bar: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
   --bg-modal-dialog-trk-settings: hsl(var(--tertiary-hsl) / .8);
-  --bg-context-menu: hsl(var(--tertiary-hsl) / .7) ;
+  --bg-context-menu: hsl(var(--tertiary-hsl) / .7);
 }
 
 /*Font Family*/
 :root {
   --font: "Questrial", "Arial", "Helvetica", "Sans Serif";
-  --icon-family: "VideoJS";
+  --icon-family: "VideoJS", "bootstrap-icons";
 }
 
 /*Font Sizes*/
@@ -73,20 +77,19 @@
   --fs-play-control: 1.323em;
   --fs-fullscreen: 1.323em;
   --fs-pip-exit: 1.221em;
-  --fs-big-play: .8em;
-  --fs-gear-quality: .93em;
+  --fs-big-play: normal;
 }
 
 :root {
   --fs-error-disp: 1.9em;
-  --fs-live-control: 1em;
+  --fs-live-control: normal;
   --fs-menu-list: .95em;
   --fs-menu-title: .92em;
   --fs-time-control: 1em;
   --fs-time-divider: 1.19em;
   --fs-title-bar: 1.5em;
-  --fs-title-bar-mobile: 1.2em;
-  --fs-title-description: .9em;
+  --fs-title-bar-mobile: 1.1em;
+  --fs-title-description: 1em;
 }
 
 /*Font Weights*/
@@ -132,8 +135,8 @@
 
 /*ICONS*/
 .vjs-luxmty .vjs-play-control {
-  color: var(--play-control);
   font-size: var(--fs-play-control);
+  color: var(--play-control);
 }
 
 .vjs-icon-play:before,
@@ -178,7 +181,12 @@
 
 .vjs-icon-circle:before,
 .vjs-luxmty .vjs-volume-level:before {
-  font-family: var(--icon-family);
+  content: "\f116";
+  color: hsl(var(--secondary-hsl));
+}
+
+.vjs-icon-circle:before,
+.vjs-luxmty.vjs-layout-small .vjs-volume-level:before {
   content: "\f116";
   color: hsl(var(--secondary-hsl));
 }
@@ -229,7 +237,6 @@
 }
 
 .vjs-luxmty .vjs-subs-caps-button + .vjs-menu .vjs-captions-menu-item .vjs-menu-item-text .vjs-icon-placeholder:before {
-  font-family: var(--icon-family);
   content: "\f10c";
   color: hsl(var(--secondary-hsl));
 }
@@ -279,7 +286,7 @@
 
 /*GEAR AND HD ICON*/
 .vjs-icon-cog {
-  font-size: var(--fs-gear-quality);
+  font-size: 0.93em;
 }
 
 .vjs-icon-cog:before {
@@ -307,8 +314,8 @@
   height: 1.67em;
   padding: 0;
   margin: -0.832em;
-  opacity: 0;
-  transition: all 0.6s ease-in-out;
+  opacity: 1;
+  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-in-out 0.7s;
 }
 
 .vjs-icon-play:before,
@@ -336,11 +343,6 @@
 .vjs-icon-replay:before,
 .vjs-luxmty.vjs-ended .vjs-big-play-button .vjs-icon-placeholder:before {
   content: "\f11b";
-}
-
-.vjs-luxmty.vjs-paused.vjs-seeking .vjs-big-play-button,
-.vjs-luxmty.vjs-paused.vjs-waiting .vjs-big-play-button {
-  display: none;
 }
 
 @keyframes BigPlay {
@@ -462,6 +464,7 @@
 }
 
 .vjs-icon-circle:before,
+.vjs-seek-to-live-control .vjs-icon-placeholder:before,
 .vjs-luxmty .vjs-volume-level:before,
 .vjs-luxmty .vjs-play-progress:before {
   content: "\f116";
@@ -528,14 +531,14 @@
 .vjs-audio-only-mode .vjs-control-bar {
   display: flex;
   justify-content: center;
-  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-out 0.5s;
+  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-in-out 0.5s;
 }
 
 .vjs-luxmty.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
   display: flex;
   justify-content: center;
   transform: translate(0px, 4em);
-  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-out 0.5s;
+  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-in-out 0.5s;
 }
 
 /*CONTROL*/
@@ -544,20 +547,20 @@
   align-items: center;
   flex: none;
   width: var(--icon-spacing);
-  height: auto;
-  margin: 0 0;
+  height: 100%;
+  margin: 0;
   padding: 0;
-}
-
-.vjs-luxmty .vjs-control:before {
-  font-family: var(--icon-family);
-  font-size: var(--icons-size);
 }
 
 .vjs-button > .vjs-icon-placeholder:before {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--icon-family);
+  font-size: var(--icons-size);
+}
+
+.vjs-luxmty .vjs-control:before {
   font-family: var(--icon-family);
   font-size: var(--icons-size);
 }
@@ -587,7 +590,7 @@
   padding-left: 0.5em;
   padding-right: 0.5em;
   min-width: 4em;
-  margin-top: 0.05em;
+  margin-top: -0.01em;
 }
 
 .vjs-luxmty .vjs-live-control:before,
@@ -599,7 +602,7 @@
   padding-left: 0;
   padding-right: 0.5em;
   animation: blink 1111ms 0s ease infinite;
-  margin-bottom: 0.13181em;
+  margin-bottom: 0.09em;
 }
 
 .vjs-luxmty .vjs-seek-to-live-control .vjs-icon-placeholder,
@@ -632,10 +635,9 @@
   font-weight: var(--fw-time-control);
   line-height: 0;
   width: auto;
-  height: auto;
   min-width: 0;
   padding: 0 0.29em 0 0em;
-  margin-bottom: -0.13em;
+  margin-bottom: -0.04em;
 }
 
 .vjs-luxmty.vjs-layout-small .vjs-time-control,
@@ -702,8 +704,8 @@
   flex: auto;
   position: absolute;
   left: 0;
-  padding-top: 1.4em;
-  margin-top: -2.578em;
+  padding-top: 0.7em;
+  margin-top: -2.226em;
   width: 100%;
   height: 2.5em;
   touch-action: none;
@@ -764,9 +766,10 @@
   flex: auto;
   position: absolute;
   left: 0;
-  margin-top: -2.578em;
+  margin-top: -2.226em;
   width: 100%;
   height: 2.5em;
+  touch-action: none;
 }
 
 .vjs-luxmty.vjs-live .vjs-progress-control {
@@ -825,7 +828,7 @@
   margin-left: -1.652em;
   padding-right: 0.5em;
   padding-left: 0;
-  line-height: 1.31em;
+  line-height: 1.35em;
 }
 
 .vjs-luxmty .vjs-menu li.vjs-menu-title {
@@ -882,7 +885,18 @@
   transform: scale(1) !important;
 }
 
-/*Error Display*/
+/*Volume Vertical*/
+.vjs-luxmty .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-vertical, .vjs-luxmty .vjs-volume-panel:active .vjs-volume-control.vjs-volume-vertical, .vjs-luxmty .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-vertical, .vjs-luxmty .vjs-volume-panel .vjs-volume-control:active.vjs-volume-vertical, .vjs-luxmty .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-vertical, .vjs-luxmty .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-vertical {
+  left: -3em;
+}
+
+.vjs-luxmty .vjs-volume-panel .vjs-volume-vertical {
+  width: 3em;
+  height: 8em;
+  bottom: 7.7em;
+  background-color: hsl(var(--tertiary-hsl)/0.7);
+}
+
 .vjs-error .vjs-error-display .vjs-modal-dialog-content {
   font-size: var(--fs-error-disp);
   text-align: center;
@@ -919,18 +933,18 @@
   background-clip: padding-box;
   width: 5.02em;
   height: 5.02em;
-  border-radius: 2.5em;
+  border-radius: 50%;
   visibility: hidden;
   z-index: 100;
 }
 
-.vjs-seeking .vjs-loading-spinner,
+.vjs-luxmty.vjs-seeking .vjs-loading-spinner,
 .vjs-waiting .vjs-loading-spinner {
   display: block;
 }
 
-.vjs-loading-spinner:before,
-.vjs-loading-spinner:after {
+.vjs-luxmty .vjs-loading-spinner:before,
+.vjs-luxmty .vjs-loading-spinner:after {
   content: "";
   position: absolute;
   margin: -0.29em;
@@ -958,7 +972,7 @@
 
 .vjs-seeking .vjs-loading-spinner:before,
 .vjs-waiting .vjs-loading-spinner:before {
-  border-top-color: var(--spin-color);
+  border-top-color: var(--loading-spinner-spin-color);
 }
 
 .vjs-seeking .vjs-loading-spinner:after,
@@ -967,7 +981,7 @@
   animation-delay: 0s;
 }
 
-@keyframes spin {
+@keyframes vjs-spinner-spin {
   100% {
     transform: rotate(360deg);
   }
@@ -1010,7 +1024,7 @@
 }
 
 .vjs-luxmty ul::-webkit-scrollbar {
-  width: .2em;
+  width: 0.2em;
 }
 
 .vjs-luxmty ul::-webkit-scrollbar-thumb {
@@ -1043,7 +1057,6 @@
     padding: 20px 24px 0px 24px;
   }
 }
-
 .vjs-text-track-settings select {
   font-size: inherit;
 }
@@ -1056,7 +1069,7 @@
 
 .vjs-luxmty .vjs-text-track-settings fieldset {
   margin: 1em;
-  padding: .3em;
+  padding: 0.3em;
   border: none;
 }
 
@@ -1091,7 +1104,7 @@
   color: hsl(var(--primary-hsl));
   cursor: pointer;
   width: auto;
-  height: 2.5em;
+  height: 25px;
 }
 
 .vjs-luxmty .vjs-track-settings-controls button:hover {
@@ -1105,25 +1118,40 @@
 }
 
 .vjs-luxmty .vjs-text-track-display > div > div > div {
-  font-size: 1em;
   padding: 0.2em !important;
-  margin-bottom: 2em;
   background: rgba(12, 12, 12, 0.4) !important;
   text-shadow: 2px 1px 3px #000, 2px 1px 3px #000;
   display: inline-block !important;
-  z-index: 3;
 }
 
-.vjs-luxmty.vjs-user-active .vjs-text-track-display > div > div > div {
-  margin-bottom: 1em;
+.vjs-luxmty .vjs-text-track-display {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-bottom: 2.5em;
+  pointer-events: none;
 }
 
-.vjs-luxmty.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 2em;
+.vjs-luxmty.vjs-user-inactive.vjs-playing .vjs-text-track-display {
+  bottom: 2.5em;
 }
 
-.vjs-luxmty.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 1.7em;
+.vjs-luxmty.vjs-user-active.vjs-playing .vjs-text-track-display {
+  bottom: 2.5em;
+}
+
+.vjs-luxmty.vjs-user-inactive.vjs-playing .vjs-text-track-display {
+  transform: translateY(0);
+}
+
+.vjs-luxmty.vjs-user-inactive.vjs-paused .vjs-text-track-display {
+  bottom: 2.5em;
+}
+
+.vjs-luxmty.vjs-user-active.vjs-paused .vjs-text-track-display {
+  bottom: 2.5em;
 }
 
 /*TITLE BAR*/
@@ -1164,12 +1192,122 @@
 .vjs-luxmty.vjs-playing.vjs-user-inactive .vjs-title-bar {
   opacity: 0;
   transform: translate(0px, -4em);
-  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-out 0.5s;
-  background-color: transparent;
+  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-in-out 0.5s;
 }
 
 .vjs-luxmty.vjs-has-started .vjs-title-bar {
-  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-out 0.5s;
+  transition: all cubic-bezier(0.45, 0.44, 0.67, 0.66), ease-in-out 0.5s;
+}
+
+/*MOBILE LAYOUT*/
+.vjs-luxmty.vjs-layout-small .vjs-title-bar,
+.vjs-luxmty.vjs-layout-x-small .vjs-title-bar,
+.vjs-luxmty.vjs-layout-tiny .vjs-title-bar {
+  font-size: var(--fs-title-bar-mobile);
+}
+
+.vjs-luxmty.vjs-layout-small .vjs-text-track-display {
+  margin-bottom: 2.3em;
+}
+
+.vjs-luxmty.vjs-layout-small.vjs-controls-disabled .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing .vjs-text-track-display {
+  transform: translateY(2.3em);
+}
+
+.vjs-luxmty.vjs-layout-small .vjs-text-track-display {
+  margin-bottom: 2.3em;
+}
+
+.vjs-luxmty.vjs-layout-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
+  margin-bottom: 70%;
+  font-size: 0.4em;
+}
+
+.vjs-luxmty.vjs-layout-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
+  margin-bottom: 70%;
+}
+
+.vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing.vjs-fullscreen .vjs-text-track-display {
+  transform: translateY(0);
+}
+
+/*SMALLER SMARTPHONE MOBILES LAYOUT*/
+.vjs-luxmty.vjs-layout-x-small .vjs-big-play-button {
+  font-size: 2em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-control-bar,
+.vjs-luxmty.vjs-layout-tiny .vjs-control-bar {
+  height: 4em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-menu-button-popup .vjs-menu {
+  margin-bottom: 2.5em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-loading-spinner {
+  width: 5.02em;
+  height: 5.02em;
+  font-size: 0.68em;
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:before,
+.vjs-luxmty.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:after,
+.vjs-luxmty.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:before,
+.vjs-luxmty.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:after {
+  margin: -0.41em 0 0 -0.41em;
+  height: inherit;
+  width: inherit;
+  border: inherit;
+  border-radius: inherit;
+  animation: var(--loading-spinner-spin-speed);
+  font-size: 0.68em;
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:after,
+.vjs--luxmty.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:after {
+  border-top-color: var(--loading-spinner-spin-color);
+  animation-delay: 0s;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-text-track-display > div > div > div {
+  font-size: 1em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-text-track-display {
+  margin-bottom: 1.8em;
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-controls-disabled .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing .vjs-text-track-display {
+  transform: translateY(1.8em);
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
+  margin-bottom: 70%;
+  font-size: 0.4em;
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
+  margin-bottom: 70%;
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing.vjs-fullscreen .vjs-text-track-display {
+  transform: translateY(0);
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip:before {
+  font-size: 2.8em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip:after,
+.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay.skip.reverse:after {
+  font-size: 0.7em;
+}
+
+.vjs-luxmty.vjs-layout-x-small .vjs-touch-overlay .vjs-play-control {
+  font-size: 2em;
 }
 
 /*ADAPTIVE LAYOUTS*/
@@ -1179,8 +1317,7 @@
 .vjs-luxmty.vjs-layout-small .vjs-skip-backward-30,
 .vjs-luxmty.vjs-layout-small .vjs-skip-forward-5,
 .vjs-luxmty.vjs-layout-small .vjs-skip-forward-10,
-.vjs-luxmty.vjs-layout-small .vjs-skip-forward-30,
-.vjs-luxmty.vjs-layout-small .vjs-volume-control {
+.vjs-luxmty.vjs-layout-small .vjs-skip-forward-30 {
   display: none;
 }
 
@@ -1218,106 +1355,8 @@
   display: none;
 }
 
-.vjs-luxmty.vjs-layout-small .vjs-title-bar,
-.vjs-luxmty.vjs-layout-x-small .vjs-title-bar,
-.vjs-luxmty.vjs-layout-tiny .vjs-title-bar {
-  font-size: var(--fs-title-bar-mobile);
-}
-
-.vjs-luxmty.vjs-layout-small .vjs-text-track-display > div > div > div {
-  margin-bottom: 0;
-}
-
-.vjs-luxmty.vjs-layout-small.vjs-user-active .vjs-text-track-display > div > div > div {
-  margin-bottom: 2.2em;
-}
-
-.vjs-luxmty.vjs-layout-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 80%;
-  font-size: 0.4em;
-}
-
-.vjs-luxmty.vjs-layout-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 75%;
-}
-
-/*SMALLER SMARTPHONE MOBILES LAYOUT*/
-.vjs-luxmty.vjs-layout-x-small .vjs-big-play-button {
-  font-size: 2em;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-control-bar,
-.vjs-luxmty.vjs-layout-tiny .vjs-control-bar {
-  height: 4em;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-menu-button-popup .vjs-menu {
-  margin-bottom: 2.5em;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-loading-spinner {
-  margin: -2.5em 0 0 -2.5em;
-  border: 0.22em solid var(--loading-spinner-border-color);
-  width: 5em;
-  height: 5em;
-  font-size: 0.67em;
-}
-
-.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:before,
-.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:after,
-.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:before,
-.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:after {
-  margin: -0.29em 0 0 -0.29em;
-  height: inherit;
-  width: inherit;
-  border: inherit;
-  border-radius: inherit;
-  animation: var(--loading-spinner-spin-speed);
-  font-size: 0.67em;
-}
-
-.vjs-layout-x-small.vjs-seeking .vjs-loading-spinner:after,
-.vjs-layout-x-small.vjs-waiting .vjs-loading-spinner:after {
-  border-top-color: var(--loading-spinner-spin-color);
-  animation-delay: 0s;
-}
-
-.vjs-luxmty.vjs-layout-x-small .vjs-text-track-display > div > div > div {
-  margin-bottom: 0;
-}
-
-.vjs-luxmty.vjs-layout-x-small.vjs-user-active .vjs-text-track-display > div > div > div {
-  margin-bottom: 2em;
-}
-
-.vjs-luxmty.vjs-layout-x-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 80%;
-  font-size: 0.2em;
-}
-
-.vjs-luxmty.vjs-layout-x-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 75%;
-}
-
-.vjs-luxmty.vjs-layout-tiny .vjs-text-track-display > div > div > div {
-  margin-bottom: 0;
-}
-
-.vjs-luxmty.vjs-layout-tiny.vjs-user-active .vjs-text-track-display > div > div > div {
-  margin-bottom: 2em;
-}
-
-.vjs-luxmty.vjs-layout-tiny.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 80%;
-  font-size: 0.2em;
-}
-
-.vjs-luxmty.vjs-layout-tiny.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 75%;
-}
-
 /*
-Designed By EmilioSG11
+Designed By Emilio Salas
 (emiliosalasgzz@gmail.com),
 (https://www.github.com/EmilioSG11)
 (https://x.com/EmilioSGZ_)
