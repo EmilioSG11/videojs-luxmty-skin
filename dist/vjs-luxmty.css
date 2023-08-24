@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Questrial&amp;display=swap"); /*!
 * @EmilioSG11/videojs-luxmty-skin
-* @Version - 2.1.4
+* @Version - 2.2.1
 * @Copyright (c) 2023 Emilio Salas
 * @Designed By EmilioSG11
 (emiliosalasgzz@gmail.com),
@@ -1206,11 +1206,14 @@
   font-size: var(--fs-title-bar-mobile);
 }
 
+.vjs-luxmty.vjs-layout-small .vjs-text-track-display > div > div > div {
+  font-size: normal;
+}
+
 .vjs-luxmty.vjs-layout-small .vjs-text-track-display {
   margin-bottom: 2.3em;
 }
 
-.vjs-luxmty.vjs-layout-small.vjs-controls-disabled .vjs-text-track-display,
 .vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing .vjs-text-track-display {
   transform: translateY(2.3em);
 }
@@ -1219,16 +1222,13 @@
   margin-bottom: 2.3em;
 }
 
-.vjs-luxmty.vjs-layout-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 70%;
-  font-size: 0.4em;
-}
-
-.vjs-luxmty.vjs-layout-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 70%;
-}
-
 .vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing.vjs-fullscreen .vjs-text-track-display {
+  transform: translateY(0);
+}
+
+.vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing.vjs-9-16 .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing.vjs-4-3 .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-small.vjs-user-inactive.vjs-playing.vjs-1-1 .vjs-text-track-display {
   transform: translateY(0);
 }
 
@@ -1272,28 +1272,28 @@
 }
 
 .vjs-luxmty.vjs-layout-x-small .vjs-text-track-display > div > div > div {
-  font-size: 1em;
+  font-size: normal;
 }
 
 .vjs-luxmty.vjs-layout-x-small .vjs-text-track-display {
   margin-bottom: 1.8em;
 }
 
-.vjs-luxmty.vjs-layout-x-small.vjs-controls-disabled .vjs-text-track-display,
 .vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing .vjs-text-track-display {
   transform: translateY(1.8em);
 }
 
-.vjs-luxmty.vjs-layout-x-small.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 70%;
-  font-size: 0.4em;
-}
-
-.vjs-luxmty.vjs-layout-x-small.vjs-user-active.vjs-fullscreen .vjs-text-track-display > div > div > div {
-  margin-bottom: 70%;
+.vjs-luxmty.vjs-layout-x-small .vjs-text-track-display {
+  margin-bottom: 1.8em;
 }
 
 .vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing.vjs-fullscreen .vjs-text-track-display {
+  transform: translateY(0);
+}
+
+.vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing.vjs-9-16 .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing.vjs-4-3 .vjs-text-track-display,
+.vjs-luxmty.vjs-layout-x-small.vjs-user-inactive.vjs-playing.vjs-1-1 .vjs-text-track-display {
   transform: translateY(0);
 }
 
