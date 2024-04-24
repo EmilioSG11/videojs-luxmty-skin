@@ -8,7 +8,14 @@ var player = videojs("luxmty-player", {
   responsive: true,
   fluid: true,
   liveui: true,
-  preferFullWindow: true,
+  language: '',
   html5: {
+    vhs: {
+      enableLowInitialPlaylist: true,
+      fastQualityChange: true,
+      overrideNative: true,
+      useDevicePixelRatio: false,
+      limitRenditionByPlayerDimensions: false,
+    }
   },
 });
