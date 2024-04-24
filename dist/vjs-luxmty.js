@@ -3,7 +3,7 @@ var player = videojs("luxmty-player", {
     children: ['playToggle', 'skipBackward', 'skipForward', 'volumePanel', 'currentTimeDisplay', 'timeDivider', 'durationDisplay', 'progressControl', 'liveDisplay', 'seekToLive', 'remainingTimeDisplay', 'customControlSpacer', 'playbackRateMenuButton', 'chaptersButton', 'descriptionsButton', 'subsCapsButton', 'audioTrackButton', 'ShareButton', 'pictureInPictureToggle', 'fullscreenToggle'],
   },
   preload: "metadata",
-  autoplay: "", //for autoplay "muted"
+  autoplay: "", //autoplay "muted"
   controls: true,
   responsive: true,
   fluid: true,
